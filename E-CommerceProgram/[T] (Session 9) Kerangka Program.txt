@@ -1,0 +1,41 @@
+GSLC OOP Session 9 (Abstraction and Interface)
+Nama : Annisa Indriani
+NIM  : 2502028821
+Kelas: LA06
+
+- List Order E-Commerce Program -
+This program is made to record every transaction made by buyers in e-commerce. 
+There are 3 menus in this program, add Order, view Order, and cancel Order.
+
+Super Class : Order (abstract, name, category, id, price, shipCost)
+Methods:
+1. generateID();
+- "X" - "YYY" = X->Sub Class, Y->Random 3 numbers
+
+2. calculateTotalPrice();
+- price + packCost (if any) + insurance (if any) + shipCost
+
+Sub Class :
+1. Food (extends Order, type, portion, packCost)
+Type Drink : packaging cost 2.000 * portion
+Type Food : packaging cost 5.000 * portion
+
+2. Furniture (extends Order implements Transferable, quantity, weight, insurance, packCost)
+Weight < 10 kg : packaging cost 25.000, insurance cost 0.1 * price
+Weight > 10 kg : packaging cost 50.000, insurance cost 0.2 * price
+
+3. Clothes (extends Order implements Transferable, quantity, weight, packCost)
+Weight < 3 kg : packaging cost 5.000
+Weight > 3 kg : packaging cost 10.000
+
+4. Electronics (extends Order implements Transferable, quantity, weight, insurance, packCost)
+Price < 5 juta : insurance cost 0.15 * price
+Price > 5 juta : insurance cost 0.25 * price
+
+Weight < 3 kg : packaging cost 50.000
+Weight > 3 kg : packaging cost 100.000
+
+Interface : Transferable (goods can be carried on trips for days)
+Methods:
+1. calculateShippingCost();
+- weight * 10.000
